@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
+
 import {
   CButton,
   CCard,
   CCardBody,
   CCardHeader,
-  CCol, CFormLabel, CLink, CModal, CModalBody, CModalFooter, CModalHeader, CModalTitle,
   CRow,
   CTable,
   CTableBody,
@@ -13,110 +13,107 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from '@coreui/react'
-// import { DocsCallout, DocsExample } from 'src/components'
-import axios from "../../../axios";
-import response from "core-js/internals/is-forced";
-const TableUsers = () => {
-  const [APIData, setAPIData] = useState([]);
+
+import axios from '../../../axios'
+import { Link } from 'react-router-dom'
+import {cilFace} from "@coreui/icons";
+import CIcon from "@coreui/icons-react";
+
+function TableUsers() {
+  const [data_list, set_data_list] = useState([])
+  const [visible, setVisible] = useState(false)
+
   useEffect(() => {
-    axios.get(`/users`)
+    axios
+      .get('/users')
       .then((response) => {
-        setAPIData(response.data.data);
+        const data = response.data.data
+        set_data_list(data)
+      })
+      .catch((error) => {
+        console.error('Error', error)
       })
   }, [])
-
-  const [APIDataDetail, setAPIDataDetail] = useState([]);
-  useEffect(() => {
-    detailUser();
-  }, []);
-  const detailUser = async (id) => {
-    await axios.delete(`user/${id}`);
-    setAPIDataDetail(response.data.data);
+  const handleDetail = (event) => {
+    let id = parseInt(event.target.value)
+    localStorage.setItem('id', id)
+    // history.push(`/detail-user/${idUser}`)
+    setVisible(!visible)
   }
 
-  const [visible, setVisible] = useState(false)
   return (
     <>
-  <CModal alignment="center" visible={visible} onClose={() => setVisible(false)}>
-    <CModalHeader>
-      <CModalTitle>Data Detail User</CModalTitle>
-    </CModalHeader>
-    {APIDataDetail.map((data) => {
-      return (
-    <CModalBody key={data.id}>
-      <CFormLabel htmlFor="exampleFormControlInput1">Nama : {data.name}</CFormLabel> <br/>
-      <CFormLabel htmlFor="exampleFormControlInput1">Age :</CFormLabel> <br/>
-      <CFormLabel htmlFor="exampleFormControlInput1">MM Percent :</CFormLabel> <br/>
-      <CFormLabel htmlFor="exampleFormControlInput1">Bond Percent :</CFormLabel> <br/>
-      <CFormLabel htmlFor="exampleFormControlInput1">Stock Percent :</CFormLabel>
-    </CModalBody>
-      )
-    })}
-    <CModalFooter>
-      <CButton color="secondary" onClick={() => setVisible(false)}>
-        Close
-      </CButton>
-    </CModalFooter>
-  </CModal>
-    <CRow>
-      <CCol xs={12}>
-        {/*<DocsCallout name="Table" href="components/table" />*/}
-      </CCol>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>Data User</strong>
-          </CCardHeader>
-          <CCardBody>
-            {/*<DocsExample href="components/table">*/}
-            <CTable>
+      <CCard className="mb-4">
+        <CCardBody>
+          <CRow>
+            <CTable striped hover>
               <CTableHead>
                 <CTableRow>
                   <CTableHeaderCell scope="col">No.</CTableHeaderCell>
                   <CTableHeaderCell scope="col">Nama</CTableHeaderCell>
-                  <CTableHeaderCell scope="col">Age</CTableHeaderCell>
-                  <CTableHeaderCell scope="col">Aksi</CTableHeaderCell>
+                  <CTableHeaderCell scope="col">Umur</CTableHeaderCell>
+                  <CTableHeaderCell scope="col">Action</CTableHeaderCell>
                 </CTableRow>
               </CTableHead>
               <CTableBody>
-                {APIData.map((data, index) => {
-                  return (
-                    <CTableRow key={data.id}>
-                      <CTableHeaderCell scope="row">{index + 1}</CTableHeaderCell>
-                      <CTableDataCell>
-                        {data.name}
-                      </CTableDataCell>
-                      <CTableDataCell>
-                        {data.age}
-                      </CTableDataCell>
-
-                          <CTableDataCell >
-                            {APIDataDetail.map((data) => {
-
-                            <CLink key={data.id} onClick={() => setVisible(!visible)} color="info" shape="rounded-pill">Detail
-                              {/*onClick={() => detailUser(data.id)*/}
-
-                            </CLink>
-
-
-                            })}
-                          </CTableDataCell>
-
-                    </CTableRow>
-                  )
-                })}
+                {
+                  // calling state variable data to filter data inside table
+                  data_list.map((data, index) => {
+                    return (
+                      <CTableRow key={data.id}>
+                        <CTableDataCell>{index + 1}</CTableDataCell>
+                        <CTableDataCell>{data.name}</CTableDataCell>
+                        <CTableDataCell>{data.age}</CTableDataCell>
+                        <CTableDataCell>
+                          <Link to="/user">
+                            <CButton color="info" variant="outline" onClick={handleDetail} value={data.id}><CIcon icon={cilFace}/> Detail</CButton>
+                          </Link>
+                          {/* <CModal visible={visible} onClose={() => setVisible(false)}>
+                            <CModalHeader onClose={() => setVisible(false)}>
+                              <CModalTitle>Detail User</CModalTitle>
+                            </CModalHeader>
+                            <CModalBody>
+                              <CTable>
+                                <CTableHead>
+                                  <CTableRow>
+                                    <CTableHeaderCell scope="col">userid</CTableHeaderCell>
+                                    <CTableHeaderCell scope="col">name</CTableHeaderCell>
+                                    <CTableHeaderCell scope="col">age</CTableHeaderCell>
+                                    <CTableHeaderCell scope="col">mm(%)</CTableHeaderCell>
+                                    <CTableHeaderCell scope="col">bond(%)</CTableHeaderCell>
+                                    <CTableHeaderCell scope="col">stock(%)</CTableHeaderCell>
+                                  </CTableRow>
+                                </CTableHead>
+                                <CTableBody>
+                                  <CTableRow>
+                                    <CTableHeaderCell scope="row">{data.userid}</CTableHeaderCell>
+                                    <CTableDataCell>{data.name}</CTableDataCell>
+                                    <CTableDataCell>Otto</CTableDataCell>
+                                    <CTableDataCell>@mdo</CTableDataCell>
+                                    <CTableDataCell>@mdo</CTableDataCell>
+                                    <CTableDataCell>@mdo</CTableDataCell>
+                                  </CTableRow>
+                                </CTableBody>
+                              </CTable>
+                            </CModalBody>
+                            <CModalFooter>
+                              <CButton color="secondary" onClick={() => setVisible(false)}>
+                                Close
+                              </CButton>
+                            </CModalFooter>
+                          </CModal> */}
+                        </CTableDataCell>
+                      </CTableRow>
+                    )
+                  })
+                }
               </CTableBody>
-
             </CTable>
-            {/*</DocsExample>*/}
-          </CCardBody>
-        </CCard>
-      </CCol>
-    </CRow>
-      </>
-  );
+          </CRow>
+        </CCardBody>
+      </CCard>
+    </>
+  )
 }
+
 export default TableUsers;
-
-
-

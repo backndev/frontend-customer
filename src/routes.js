@@ -17,8 +17,8 @@ const Placeholders = React.lazy(() => import('./views/base/placeholders/Placehol
 const Popovers = React.lazy(() => import('./views/base/popovers/Popovers'))
 const Progress = React.lazy(() => import('./views/base/progress/Progress'))
 const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
-const Tables = React.lazy(() => import('./views/base/tables/TableUsers'))
-const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
+const TableUser = React.lazy(() => import('./views/base/tables/TableUsers'))
+const DetailUser = React.lazy(() => import('./views/base/tables/DetailUser.js'))
 
 // Buttons
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
@@ -69,8 +69,8 @@ const routes = [
   { path: '/base/popovers', name: 'Popovers', component: Popovers },
   { path: '/base/progress', name: 'Progress', component: Progress },
   { path: '/base/spinners', name: 'Spinners', component: Spinners },
-  { path: '/users', name: 'Tables', component: Tables },
-  { path: '/base/tooltips', name: 'Tooltips', component: Tooltips },
+  { path: '/users', name: 'Data User', component: TableUser },
+  { path: '/user', name: 'Detail User', component: DetailUser },
   { path: '/buttons', name: 'Buttons', component: Buttons, exact: true },
   { path: '/buttons/buttons', name: 'Buttons', component: Buttons },
   { path: '/buttons/dropdowns', name: 'Dropdowns', component: Dropdowns },

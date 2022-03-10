@@ -5,7 +5,7 @@ const instance = axios.create({
   // server bri:
   // baseURL: "http://172.18.132.107:11000",
   // server sv 1:
-  baseURL: "http://127.0.0.1:8005/api",
+  baseURL: "http://165.22.55.132:8005/api",
   // server sv 2:
   // baseURL: "http://192.168.2.166:11000",
   // baseURL: "http://165.22.55.132:8011",

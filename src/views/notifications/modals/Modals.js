@@ -24,7 +24,7 @@ const LiveDemo = () => {
       <CButton onClick={() => setVisible(!visible)}>Launch demo modal</CButton>
       <CModal visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
-          <CModalTitle>Modal title</CModalTitle>
+          <CModalTitle>DetailUser title</CModalTitle>
         </CModalHeader>
         <CModalBody>Woohoo, you&#39;re reading this text in a modal!</CModalBody>
         <CModalFooter>
@@ -45,7 +45,7 @@ const StaticBackdrop = () => {
       <CButton onClick={() => setVisible(!visible)}>Launch static backdrop modal</CButton>
       <CModal backdrop="static" visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
-          <CModalTitle>Modal title</CModalTitle>
+          <CModalTitle>DetailUser title</CModalTitle>
         </CModalHeader>
         <CModalBody>
           I will not close if you click outside me. Don&#39;teven try to press escape key.
@@ -68,7 +68,7 @@ const ScrollingLongContent = () => {
       <CButton onClick={() => setVisible(!visible)}>Launch demo modal</CButton>
       <CModal visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
-          <CModalTitle>Modal title</CModalTitle>
+          <CModalTitle>DetailUser title</CModalTitle>
         </CModalHeader>
         <CModalBody>
           <p>
@@ -168,7 +168,7 @@ const ScrollingLongContent2 = () => {
       <CButton onClick={() => setVisible(!visible)}>Launch demo modal</CButton>
       <CModal scrollable visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
-          <CModalTitle>Modal title</CModalTitle>
+          <CModalTitle>DetailUser title</CModalTitle>
         </CModalHeader>
         <CModalBody>
           <p>
@@ -268,7 +268,7 @@ const VerticallyCentered = () => {
       <CButton onClick={() => setVisible(!visible)}>Vertically centered modal</CButton>
       <CModal alignment="center" visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
-          <CModalTitle>Modal title</CModalTitle>
+          <CModalTitle>DetailUser title</CModalTitle>
         </CModalHeader>
         <CModalBody>
           Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
@@ -292,7 +292,7 @@ const VerticallyCentered2 = () => {
       <CButton onClick={() => setVisible(!visible)}>Vertically centered scrollable modal</CButton>
       <CModal alignment="center" scrollable visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
-          <CModalTitle>Modal title</CModalTitle>
+          <CModalTitle>DetailUser title</CModalTitle>
         </CModalHeader>
         <CModalBody>
           <p>
@@ -335,7 +335,7 @@ const TooltipsPopovers = () => {
       <CButton onClick={() => setVisible(!visible)}>Launch demo modal</CButton>
       <CModal alignment="center" visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
-          <CModalTitle>Modal title</CModalTitle>
+          <CModalTitle>DetailUser title</CModalTitle>
         </CModalHeader>
         <CModalBody>
           <h5>Popover in a modal</h5>
@@ -466,7 +466,7 @@ const Modals = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Modal</strong>
+            <strong>React DetailUser</strong>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
@@ -485,9 +485,9 @@ const Modals = () => {
                 visible
               >
                 <CModalHeader>
-                  <CModalTitle>Modal title</CModalTitle>
+                  <CModalTitle>DetailUser title</CModalTitle>
                 </CModalHeader>
-                <CModalBody>Modal body text goes here.</CModalBody>
+                <CModalBody>DetailUser body text goes here.</CModalBody>
                 <CModalFooter>
                   <CButton color="secondary">Close</CButton>
                   <CButton color="primary">Save changes</CButton>
@@ -500,7 +500,7 @@ const Modals = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Modal</strong> <small>Live demo</small>
+            <strong>React DetailUser</strong> <small>Live demo</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
@@ -514,11 +514,11 @@ const Modals = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Modal</strong> <small>Static backdrop</small>
+            <strong>React DetailUser</strong> <small>Static backdrop</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              If you don’t provide an <code>onDimsiss</code> handler to the Modal component, your
+              If you don’t provide an <code>onDimsiss</code> handler to the DetailUser component, your
               modal will behave as though the backdrop is static, meaning it will not close when
               clicking outside it. Click the button below to try it.
             </p>
@@ -529,11 +529,11 @@ const Modals = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Modal</strong> <small>Scrolling long content</small>
+            <strong>React DetailUser</strong> <small>Scrolling long content</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              If you don’t provide an <code>onDimsiss</code> handler to the Modal component, your
+              If you don’t provide an <code>onDimsiss</code> handler to the DetailUser component, your
               modal will behave as though the backdrop is static, meaning it will not close when
               clicking outside it. Click the button below to try it.
             </p>
@@ -553,7 +553,7 @@ const Modals = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Modal</strong> <small>Vertically centered</small>
+            <strong>React DetailUser</strong> <small>Vertically centered</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
@@ -572,7 +572,7 @@ const Modals = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Modal</strong> <small>Tooltips and popovers</small>
+            <strong>React DetailUser</strong> <small>Tooltips and popovers</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
@@ -589,7 +589,7 @@ const Modals = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Modal</strong> <small>Optional sizes</small>
+            <strong>React DetailUser</strong> <small>Optional sizes</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
@@ -602,7 +602,7 @@ const Modals = () => {
                 <tr>
                   <th>Size</th>
                   <th>Property size</th>
-                  <th>Modal max-width</th>
+                  <th>DetailUser max-width</th>
                 </tr>
               </thead>
               <tbody>
@@ -649,7 +649,7 @@ const Modals = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Modal</strong> <small>Fullscreen Modal</small>
+            <strong>React DetailUser</strong> <small>Fullscreen DetailUser</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
